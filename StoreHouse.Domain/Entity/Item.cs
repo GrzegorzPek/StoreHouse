@@ -23,6 +23,9 @@ namespace StoreHouse.Domain.Entity
             Name = name;
             TypeId = typeId;
         }
+        public Item() 
+        {
+        }
 
     }
 

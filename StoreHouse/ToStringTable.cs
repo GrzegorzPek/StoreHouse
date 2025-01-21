@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StoreHouse.Helpers
+namespace StoreHouse
 {
     public static class TableParser
     {

@@ -3,6 +3,7 @@ using StoreHouse.App.Abstract;
 using StoreHouse.App.Concrete;
 using StoreHouse.App.Managers;
 using StoreHouse.Domain.Entity;
+
 using System;
 
 namespace StoreHouse
@@ -13,12 +14,12 @@ namespace StoreHouse
         static void Main(string[] args)
         {
             MenuActionService actionService = new MenuActionService();
-           // ItemService itemService = new ItemService();
+          // ItemService itemService = new ItemService();
             ItemManager itemManager = new ItemManager(actionService);
            
 
             //IService<MenuAction> actionService = new MenuActionService();
-            //IService<Item> itemService = new ItemService();
+           // IService<Item> itemService = new ItemService();
 
             //MenuActionService actionService = new MenuActionService();
             //ItemService itemService = new ItemService();
@@ -32,6 +33,9 @@ namespace StoreHouse
                 Console.WriteLine();
                 Console.WriteLine("Please let me now what you want to do:");
                 var mainMenu = actionService.GetMenuActionsByMenuName("Main");
+
+                ItemService itemService = new ItemService();
+
                 for (int i = 0; i < mainMenu.Count; i++)
                 {
                     Console.WriteLine($"{mainMenu[i].Id} {mainMenu[i].Name}");
@@ -40,8 +44,13 @@ namespace StoreHouse
                 switch (input)
                 {
                     case "1":
-                        var keyInfo = itemService.AddNewItemView(actionService);
-                        var id = itemService.AddNewItem(keyInfo.KeyChar);
+                        //var keyInfo = itemService.AddNewItemView(actionService);
+                        //var id = itemService.AddNewItem(keyInfo.KeyChar);
+
+                        // var newId = itemManager.AddNewItem();
+                        var keyInfo = itemManager.AddNewItemView(actionService);
+                        var newId = itemManager.AddNewItem(keyInfo.KeyChar);
+
                         break;
                     case "2":
                         var removeId = itemService.RemoveItemView();
