@@ -66,24 +66,6 @@ namespace StoreHouse.App.Common
             return entity;
         }
 
-        //int IService<T>.GetLastId()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public T GetItemById(int? id)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //int IService<T>.AddItem(T item)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //int IService<T>.UpdateItem(T item)
-        //{
-        //    throw new NotImplementedException();
-        //}
+      
     }
 }

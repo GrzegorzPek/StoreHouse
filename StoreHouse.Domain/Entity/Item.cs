@@ -8,7 +8,7 @@ using StoreHouse.Domain.Common;
 
 namespace StoreHouse.Domain.Entity
 {
-    public class Item:BaseEntity
+    public class Item : BaseEntity
     {
 
         public int Id { get; set; }
@@ -17,17 +17,34 @@ namespace StoreHouse.Domain.Entity
         public string Name { get; set; }
         public int Price { get; set; }
 
-        public Item(int id, string name, int typeId)
+        public Item()
         {
-          // Id = id;
-            Name = name;
-            TypeId = typeId;
-        }
-        public Item() 
-        {
+            //  // Id = id;   
+            //    TypeId = typeId;
+            //    Sn = sn;
+            //    Name = name;
+            //    Price = price;
+
+
         }
 
+
+        public override string ToString()
+        {
+            return $"Id: {Id}, TypeId: {TypeId}, Sn: {Sn}, Name: {Name}, Price: {Price}";
+        }
     }
 
-  
+    //public Item(int id, int typeId, int sn, string name, int price)
+    //{
+    //  // Id = id;   
+    //    TypeId = typeId;
+    //    Sn = sn;
+    //    Name = name;
+    //    Price = price;
+    //}
+   
+
 }
+
+  

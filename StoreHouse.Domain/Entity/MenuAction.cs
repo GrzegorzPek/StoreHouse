@@ -14,9 +14,9 @@ namespace StoreHouse.Domain.Entity
         public string? Name { get; set; }
         public string MenuName { get; set; }
 
-        public MenuAction(int ida, string name, string menuName)
+        public MenuAction(int id, string name, string menuName)
         {
-            Id = ida;
+            Id = id;
             Name = name;
             MenuName = menuName;
         }

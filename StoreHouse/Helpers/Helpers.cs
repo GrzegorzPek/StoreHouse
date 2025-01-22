@@ -8,5 +8,6 @@ namespace StoreHouse.Helpers
 {
     public class Helpers
     {
+
     }
 }

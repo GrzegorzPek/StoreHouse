@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StoreHouse.Domain.Common
 {
-    public class BaseEntity//:AuditTableModel
+    public class BaseEntity :AuditTableModel
     {
         public int Id { get; set; }
     }

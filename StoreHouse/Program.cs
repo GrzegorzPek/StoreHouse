@@ -1,7 +1,7 @@
 ﻿using StoreHouse;
 using StoreHouse.App.Abstract;
 using StoreHouse.App.Concrete;
-using StoreHouse.App.Managers;
+//using StoreHouse.App.Managers;
 using StoreHouse.Domain.Entity;
 
 using System;
@@ -14,8 +14,8 @@ namespace StoreHouse
         static void Main(string[] args)
         {
             MenuActionService actionService = new MenuActionService();
-          // ItemService itemService = new ItemService();
-            ItemManager itemManager = new ItemManager(actionService);
+           //ItemService itemService = new ItemService();
+           // ItemManager itemManager = new ItemManager(actionService);
            
 
             //IService<MenuAction> actionService = new MenuActionService();
@@ -48,8 +48,8 @@ namespace StoreHouse
                         //var id = itemService.AddNewItem(keyInfo.KeyChar);
 
                         // var newId = itemManager.AddNewItem();
-                        var keyInfo = itemManager.AddNewItemView(actionService);
-                        var newId = itemManager.AddNewItem(keyInfo.KeyChar);
+                        var keyInfo = itemService.AddNewItemView(actionService);
+                        var id = itemService.AddNewItem(keyInfo.KeyChar);
 
                         break;
                     case "2":
