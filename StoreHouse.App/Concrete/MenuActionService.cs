@@ -1,31 +1,14 @@
-﻿using StoreHouse;
-using StoreHouse.App.Common;
+﻿using StoreHouse.App.Common;
 using StoreHouse.Domain.Entity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StoreHouse.App.Concrete
 {
     public class MenuActionService:BaseService<MenuAction>
     {
-        //private List<MenuAction> menuActions;
-        //public MenuActionService()
-        //{
-        //    menuActions = new List<MenuAction>();
-        //}
-        //public void AddNewAction(int id, string name, string menuName)
-        //{
-        //    MenuAction menuAction = new MenuAction() { Id = id, Name = name, MenuName = menuName };
-        //    menuActions.Add(menuAction);
-        //}
         public MenuActionService() 
         {
         Initialize();
         }
-
         public List<MenuAction> GetMenuActionsByMenuName(string menuName)
         {
             List<MenuAction> result = new List<MenuAction>();
@@ -39,7 +22,6 @@ namespace StoreHouse.App.Concrete
             }
             return result;
         }
-
         private void Initialize()
         {
             AddItem(new MenuAction(1, "Add item", "Main"));
@@ -54,16 +36,6 @@ namespace StoreHouse.App.Concrete
             AddItem(new MenuAction(3, "Electronics", "AddNewItemMenu"));
             
         }
-
-
-
-
-
-
-
-
-
-
     }
 }
 

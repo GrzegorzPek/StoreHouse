@@ -1,10 +1,5 @@
 ﻿using StoreHouse.App.Abstract;
 using StoreHouse.Domain.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StoreHouse.App.Common
 {
@@ -16,11 +11,6 @@ namespace StoreHouse.App.Common
         {
             Items = new List<T>();
         }
-
-        //dodatkowa metoda
-
-      
-
         public int GetLastId()
         {
             int lastId;
@@ -64,8 +54,6 @@ namespace StoreHouse.App.Common
         {
             var entity = Items.FirstOrDefault(p => p.Id == id);
             return entity;
-        }
-
-      
+        }    
     }
 }
