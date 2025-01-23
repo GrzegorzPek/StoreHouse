@@ -14,7 +14,7 @@ namespace StoreHouse.App.Concrete
 
     public class ItemService : BaseService<Item>
     {
-        public List<Item> Items { get; set; }
+       // public List<Item> Items { get; set; }
         int itemId = 0;
         public ItemService()
         {
@@ -33,32 +33,76 @@ namespace StoreHouse.App.Concrete
             
             return operation;
         }
+        //public int AddNewItem(char itemType)
+        //{
+        //    Console.WriteLine();
+        //    int itemTypeId;
+        //    Int32.TryParse(itemType.ToString(), out itemTypeId);
+        //    Item item = new Item();
+        //    item.Id = itemId++;
+        //    item.TypeId = itemTypeId;
+        //    Console.WriteLine();
+        //    Console.WriteLine("Please enter serial number for new item:");
+        //    var sn = Console.ReadLine();
+        //    int itemSn;
+        //    Int32.TryParse(sn, out itemSn);
+        //    Console.WriteLine("Please enter name for new item:");
+        //    var name = Console.ReadLine();
+        //    Console.WriteLine("Please enter price for new item:");
+        //    var price = Console.ReadLine();
+        //    int priceId;
+        //    Int32.TryParse(price, out priceId);
+        //    item.Id = itemId;
+        //    item.Sn = itemSn;
+        //    item.Name = name;
+        //    item.Price = priceId;
+        //    Items.Add(item);
+        //    return itemSn;
+        //}
+
         public int AddNewItem(char itemType)
         {
             Console.WriteLine();
-            int itemTypeId;
-            Int32.TryParse(itemType.ToString(), out itemTypeId);
-            Item item = new Item();
-            item.Id = itemId++;
-            item.TypeId = itemTypeId;
-            Console.WriteLine();
+            if (!Int32.TryParse(itemType.ToString(), out int itemTypeId))
+            {
+                Console.WriteLine("Invalid item type. Defaulting to TypeId = 0.");
+                itemTypeId = 0;
+            }
+
             Console.WriteLine("Please enter serial number for new item:");
             var sn = Console.ReadLine();
-            int itemSn;
-            Int32.TryParse(sn, out itemSn);
+            if (!Int32.TryParse(sn, out int itemSn))
+            {
+                Console.WriteLine("Invalid serial number. Defaulting to 0.");
+                itemSn = 0;
+            }
+
             Console.WriteLine("Please enter name for new item:");
             var name = Console.ReadLine();
+
             Console.WriteLine("Please enter price for new item:");
             var price = Console.ReadLine();
-            int priceId;
-            Int32.TryParse(price, out priceId);
-            item.Id = itemId;
-            item.Sn = itemSn;
-            item.Name = name;
-            item.Price = priceId;
+            if (!Int32.TryParse(price, out int priceId))
+            {
+                Console.WriteLine("Invalid price. Defaulting to 0.");
+                priceId = 0;
+            }
+
+            var item = new Item
+            {
+                Id = itemId,
+                TypeId = itemTypeId,
+                Sn = itemSn,
+                Name = name ?? "Unknown",
+                Price = priceId
+            };
+            itemId++;
             Items.Add(item);
-            return itemSn;
+            Console.WriteLine("Item added successfully!");
+            return item.Sn;
         }
+
+
         public int RemoveItemView()
         {
             Console.WriteLine("Please enter type serial number for item you want to remove:");
@@ -138,6 +182,13 @@ namespace StoreHouse.App.Concrete
                     break;
                 }
             }
+            if (productToShow == null)
+            {
+                Console.WriteLine("Item not found.");
+                return;
+            }
+            Console.WriteLine($"Item ID: {productToShow.Id}");
+
             Console.WriteLine($"Item ID: {productToShow.Id}");
             Console.WriteLine($"Item Serial Number: {productToShow.Sn}");
             Console.WriteLine($"Item Name: {productToShow.Name}");
@@ -155,6 +206,12 @@ namespace StoreHouse.App.Concrete
                     productToShow = item;
                     break;
                 }
+                if (productToShow == null)
+                {
+                    Console.WriteLine("Item not found.");
+                    return;
+                }
+                Console.WriteLine($"Item ID: {productToShow.Id}");
             }
             Console.WriteLine($"Item ID: {productToShow.Id}");
             Console.WriteLine($"Item Serial Number: {productToShow.Sn}");

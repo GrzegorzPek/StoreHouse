@@ -54,6 +54,16 @@ namespace StoreHouse.App.Concrete
             AddItem(new MenuAction(3, "Electronics", "AddNewItemMenu"));
             
         }
+
+
+
+
+
+
+
+
+
+
     }
 }
 
